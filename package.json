@@ -6,7 +6,10 @@
     "start_frontend": "cd frontend && npm run start",
     "start_backend": "cd backend && npm run start",
     "start": "concurrently \"npm run start_frontend\" \"npm run start_backend\" ",
-    "build_frontend": "cd frontend && npm run build"
+    "build_frontend": "cd frontend && npm run build",
+    "install_backend": "cd backend && npm install",
+    "install_frontend": "cd frontend && npm install",
+    "install_prequisities": "concurrently \"npm run install_frontend\" \"npm run install_backend\" "
   },
   "devDependencies": {
     "concurrently": "^6.2.0"
