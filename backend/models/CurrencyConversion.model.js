@@ -1,5 +1,5 @@
-const mongoose = require("../services/mongoose.service").mongoose;
-const Schema = mongoose.Schema;
+const mongoose = require("../services/mongoose.service").mongoose
+const Schema = mongoose.Schema
 
 const currencySchema = new Schema ({
     amount: Number,
@@ -7,11 +7,11 @@ const currencySchema = new Schema ({
     currencyTo: String
 });
 
-const CurrencyConversion = mongoose.model("CurrencyConversions", currencySchema);
+const CurrencyConversion = mongoose.model("CurrencyConversions", currencySchema)
 
 exports.createCurrencyConversion = (currencyData) => {
-    const currencyConversion = new CurrencyConversion(currencyData);
-    return currencyConversion.save();
+    const currencyConversion = new CurrencyConversion(currencyData)
+    return currencyConversion.save()
 };
 
 exports.list = () => {
@@ -21,14 +21,14 @@ exports.list = () => {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(currencyConversions);
+                    resolve(currencyConversions)
                 }
             })
     });
 };
 
 exports.conversionCount = () => {
-    return CurrencyConversion.countDocuments();
+    return CurrencyConversion.countDocuments()
 };
 
 //this should work but im too cheap to upgrade cluster to paid one.

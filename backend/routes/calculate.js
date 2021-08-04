@@ -1,14 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const cors = require('cors');
+const express = require('express')
+const router = express.Router()
+const cors = require('cors')
 
-const CurrencyConversionModel = require("../models/CurrencyConversion.model");
+const CurrencyConversionModel = require("../models/CurrencyConversion.model")
 const dataFixer = require("../fixer/dataFixer")
 
 router.get('/', cors(), function(req, res, ignore) {
-    let currencyFrom = req.query?.from;
-    let currencyTo = req.query?.to;
-    let amount = req.query?.amount;
+    let currencyFrom = req.query?.from
+    let currencyTo = req.query?.to
+    let amount = req.query?.amount
 
     if (currencyFrom === undefined || currencyTo === undefined || amount === undefined || Number.isNaN(Number(amount))) {
         res.status(400).send()
@@ -42,4 +42,4 @@ router.get('/', cors(), function(req, res, ignore) {
     })
 });
 
-module.exports = router;
+module.exports = router

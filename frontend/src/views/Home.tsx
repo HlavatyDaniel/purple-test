@@ -7,7 +7,7 @@ import HomeLogo from "../assets/Home_logo.png"
 const Home: React.FC = () => {
 
     useEffect(() => {
-        document.title = "Welcome";
+        document.title = "Welcome"
     })
 
     return (

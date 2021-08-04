@@ -1,22 +1,22 @@
-const express = require('express');
-const router = express.Router();
-const cors = require('cors');
+const express = require('express')
+const router = express.Router()
+const cors = require('cors')
 const dataFixer = require("../fixer/dataFixer")
 
-const CurrencyConversionModel = require("../models/CurrencyConversion.model");
+const CurrencyConversionModel = require("../models/CurrencyConversion.model")
 
 router.get('/', cors(), function(req, res, ignore) {
 
-    let specifyStatistic = req.query?.specifyStatistic;
+    let specifyStatistic = req.query?.specifyStatistic
 
     if (specifyStatistic === 'amountConverted')
-        getAmountConverted();
+        getAmountConverted()
     else if (specifyStatistic === 'conversionCount')
-        getConversionCount();
+        getConversionCount()
     else if (specifyStatistic === 'favoriteDestination')
-        getFavoriteDestination();
+        getFavoriteDestination()
     else
-        res.status(400).send();
+        res.status(400).send()
 
     //return total amount converted
     //would love to just add arg base=USD, but its paid
@@ -61,7 +61,7 @@ router.get('/', cors(), function(req, res, ignore) {
     function getConversionCount() {
         CurrencyConversionModel.conversionCount()
             .then((result) => {
-                res.status(200).send({result: result});
+                res.status(200).send({result: result})
             }).catch(ignore => {
                 res.status(400).send()
         })
@@ -71,7 +71,7 @@ router.get('/', cors(), function(req, res, ignore) {
     function getFavoriteDestination() {
         CurrencyConversionModel.list()
             .then((result) => {
-                res.status(200).send({result: getHighestOccurrence(result)});
+                res.status(200).send({result: getHighestOccurrence(result)})
             }).catch(ignore => {
                 res.status(400).send()
         })
@@ -79,7 +79,7 @@ router.get('/', cors(), function(req, res, ignore) {
 
     function getHighestOccurrence(array)
     {
-        let map = {};
+        let map = {}
         let maxEl = array[0].currencyTo, maxCount = 1;
 
         for(let i = 0; i < array.length; i++)
@@ -93,12 +93,12 @@ router.get('/', cors(), function(req, res, ignore) {
                 if (map[el] > maxCount)
                 {
                     maxEl = el;
-                    maxCount = map[el];
+                    maxCount = map[el]
                 }
         }
 
-        return maxEl;
+        return maxEl
     }
 })
 
-module.exports = router;
+module.exports = router

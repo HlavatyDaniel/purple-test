@@ -2,7 +2,7 @@ import React from "react"
 
 import styles from "./InputCurrency.module.scss"
 
-import CurrencyInput from "react-currency-input-field";
+import CurrencyInput from "react-currency-input-field"
 
 interface Props {
     onValueChange: (value : number ) => void

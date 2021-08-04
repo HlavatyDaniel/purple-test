@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const cors = require('cors');
+const express = require('express')
+const router = express.Router()
+const cors = require('cors')
 const dataFixer = require('../fixer/dataFixer')
 
 router.get('/', cors(), function(req, res, ignore) {

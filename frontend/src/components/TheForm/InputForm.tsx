@@ -1,23 +1,23 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
+import React, {useState, useEffect} from "react"
+import axios from "axios"
 
 import styles from "./InputForm.module.scss"
 
-import InputCurrency from "./InputCurrency";
-import SelectCurrency from "./SelectCurrency";
+import InputCurrency from "./InputCurrency"
+import SelectCurrency from "./SelectCurrency"
 
 import {CurrencyOption} from "../../types"
 
 const InputForm: React.FC = () => {
 
     const [inputCurrencyAmount, setInputCurrencyAmount] = useState(0)
-    const [currencyFromOption, setCurrencyFromOption] = useState('');
-    const [currencyToOption, setCurrencyToOption] = useState('');
-    const [currencyOptions, setCurrencyOptions] = useState<CurrencyOption[]>([]);
+    const [currencyFromOption, setCurrencyFromOption] = useState('')
+    const [currencyToOption, setCurrencyToOption] = useState('')
+    const [currencyOptions, setCurrencyOptions] = useState<CurrencyOption[]>([])
 
-    const [amountWarning, setAmountWaring] = useState('');
-    const [currencyWarning, setCurrencyWarning] = useState('');
-    const [convertedResult, setConvertedResult] = useState('');
+    const [amountWarning, setAmountWaring] = useState('')
+    const [currencyWarning, setCurrencyWarning] = useState('')
+    const [convertedResult, setConvertedResult] = useState('')
 
     useEffect(() => {
         const fetchCurrencies = () => {
@@ -42,7 +42,7 @@ const InputForm: React.FC = () => {
             })
         };
 
-        fetchCurrencies();
+        fetchCurrencies()
     }, []);
 
     const handleInputCurrencyAmountChange = (amount : number) => {
@@ -75,7 +75,7 @@ const InputForm: React.FC = () => {
 
         axios.get('http://localhost:8080/calculate?from=' + currencyFromOption + '&to=' + currencyToOption + '&amount=' + inputCurrencyAmount
         ).then(response => {
-            setConvertedResult("Converted Amount: " + Number(response.data.result).toFixed(2));
+            setConvertedResult("Converted Amount: " + Number(response.data.result).toFixed(2))
         });
     }
 

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import InputForm from "../components/TheForm/InputForm";
+import InputForm from "../components/TheForm/InputForm"
 
 import Header from "../components/Header"
 

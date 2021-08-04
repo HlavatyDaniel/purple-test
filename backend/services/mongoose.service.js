@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const options = {
     autoIndex: true,
@@ -14,8 +14,8 @@ const connectWithRetry = () => {
     }).catch(ignore => {
         setTimeout(connectWithRetry, 5000);
     })
-};
+}
 
-connectWithRetry();
+connectWithRetry()
 
 exports.mongoose = mongoose;
