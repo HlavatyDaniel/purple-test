@@ -2,15 +2,15 @@
 
 This repository is split into two parts, frontend and backend
 
-To install prequisities run:
+In the project directory, to install prequisities run:
 
 ### `npm install`
 
-to install prequisities for frontend and backend run:
+To install prequisities for frontend and backend run:
 
 ### `npm run install_prequisities`
 
-In the project directory, to start both frontend and backend by running:
+To start both frontend and backend by running:
 
 ### `npm run start`
 
